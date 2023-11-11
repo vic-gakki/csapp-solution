@@ -28,38 +28,6 @@ void show_pointer(void *x){
   show_bytes((byte_pointer) &x, sizeof(void *));
 };
 
-
-int is_little_endian(void){
-  int num = 1;
-  return (short) num;
-};
-
-int is_little_endian2(void){
-  short test_num = 0xff;
-  byte_pointer p = (byte_pointer) &test_num;
-  if(p[0] == 0xff){
-    return 1;
-  }
-  return 0;
-}
-
-int is_big_endian(void){
-  int num = 1;
-  return (short) num == 0 ? 1 : 0;
-};
-
-int is_big_endian2(void){
-  short test_num = 0xff;
-  byte_pointer p = (byte_pointer) &test_num;
-  if(p[1] == 0xff){
-    return 1;
-  }
-  return 0;
-}
-
-
-
-
 void test_show_bytes(int x){
   int ival = x;
   short sval = (short) x;
@@ -71,10 +39,6 @@ void test_show_bytes(int x){
   show_float(fval);
   show_double(dval);
   show_pointer(pval);
-  printf("%d\n", is_little_endian());
-  printf("%d\n", is_little_endian2());
-  printf("%d\n", is_big_endian());
-  printf("%d\n", is_big_endian2());
 }
 
 int main(void){
