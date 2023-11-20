@@ -9,7 +9,7 @@ unsigned srl(unsigned x, int k){
   // ~0                                         -> 11111111 11111111 11111111 11111111
   // ~0 << (sizeof(int) * 8 - 1 - k when k = 3  -> 11100000 00000000 00000000 00000000
   // ~(~0 << (sizeof(int) * 8 - 1 - k))         -> 00011111 11111111 11111111 11111111
-  return (~(~0 << (sizeof(int) * 8 - k)) & xsra);
+  return (~(~0 << (sizeof(int) << 3 - k)) & xsra);
 }
 
 
